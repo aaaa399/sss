@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFID信息 - 车管系统</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            background-color: #ffffff49;
+            padding: 20px;
+            border-radius: 8px;
+
+
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .row {
+            display: flex;
+            margin: 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid gainsboro;
+        }
+
+
+
+        .value {
+            font-weight: bolder;
+        }
+
+        .watermark {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .watermark-text {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            color: rgba(0, 0, 0, 0.1);
+            font-size: 25px;
+            white-space: nowrap;
+
+
+
+        }
+
+        .posn div {
+            transform: rotate(-30deg);
+            color: rgb(219, 219, 219);
+            font-size: 14px;
+
+            z-index: -99;
+
+        }
+
+        .posn p {
+            font-weight: 100;
+        }
+
+        .p1 {
+            position: fixed;
+            top: 28px;
+            left: 8px;
+        }
+
+        .p3 {
+            position: fixed;
+            top: 178px;
+            left: 8px;
+        }
+
+        .p5 {
+            position: fixed;
+            top: 328px;
+            left: 8px;
+        }
+
+        .p7 {
+            position: fixed;
+            top: 478px;
+            left: 8px;
+        }
+
+        .p3 {
+            position: fixed;
+            top: 178px;
+            left: 8px;
+        }
+
+        .p2 {
+            position: fixed;
+            top: 28px;
+            left: 210px;
+        }
+
+        .p4 {
+            position: fixed;
+            top: 178px;
+            left: 210px;
+        }
+
+        .p6 {
+            position: fixed;
+            top: 328px;
+            left: 210px;
+        }
+
+        .p8 {
+            position: fixed;
+            top: 478px;
+            left: 210px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="watermark">
+        <div class="watermark-text" class="watermark-text"></div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="label">车牌号</div>
+            <div class="value">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;赣AR4K060</div>
+        </div>
+        <div class="row">
+            <div class="label">车主姓名</div>
+            <div class="value">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;张**</div>
+        </div>
+        <div class="row">
+            <div class="label">入网时间</div>
+            <div class="value">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2023-10-31 14:27:06</div>
+        </div>
+    </div>
+    <div class="posn">
+        <div class="p1">
+            <p>赣AR4K060</p>
+            <p class="time-display" id="time1"></p>
+        </div>
+        <div class="p2">
+            <p>赣AR4K060</p>
+            <p class="time-display" id="time2"></p>
+        </div>
+        <div class="p3">
+            <p>赣AR4K060</p>
+            <p class="time-display" id="time3"></p>
+        </div>
+        <div class="p4">
+            <p>赣AR4K060</p>
+            <p class="time-display" id="time4"></p>
+        </div>
+        <div class="p5">
+            <p>赣AR4K060</p>
+            <p class="time-display" id="time5"></p>
+        </div>
+        <div class="p6">
+            <p>赣AR4K060</p>
+            <p class="time-display" id="time6"></p>
+        </div>
+        <div class="p7">
+            <p>赣AR4K060</p>
+            <p class="time-display" id="time7"></p>
+        </div>
+        <div class="p8">
+            <p>赣AR4K060</p>
+            <p class="time-display" id="time8"></p>
+        </div>
+
+
+    </div>
+
+
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = now.getMonth() + 1;
+            const day = now.getDate();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+            const timeString = `${year}-0${month}-${day} ${hours}:${minutes}:${seconds}`;
+            document.getElementById('time1').textContent = timeString;
+            document.getElementById('time2').textContent = timeString;
+            document.getElementById('time3').textContent = timeString;
+            document.getElementById('time4').textContent = timeString;
+            document.getElementById('time5').textContent = timeString;
+            document.getElementById('time6').textContent = timeString;
+            document.getElementById('time7').textContent = timeString;
+            document.getElementById('time8').textContent = timeString;
+        }
+
+        // 立即更新一次时间显示
+        updateTime();
+
+        // 每隔一秒更新一次时间显示
+        setInterval(updateTime, 1000);
+    </script>
+
+</body>
+
+</html>
